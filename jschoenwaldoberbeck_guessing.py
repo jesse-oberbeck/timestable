@@ -30,7 +30,7 @@ def compareAnswer(guess, truth):
     low = "is too low - "
     position = "" #only really used for a lie
     if not truth:
-        low, high = high, low
+        low, high = high, low  #Switches statements for lie.
     if guess > answer:
         print(guess, high, end=" ")
         position = "low"
@@ -70,7 +70,7 @@ while True:
                 lie = compareAnswer(guess, False)
                 lieInfo = "I lied about " + str(lie[0]) \
                       + " being too " + lie[1] + "."
-                lieUsed = True
+                lieUsed = True  #Sets flag to not lie again.
             else:
                 compareAnswer(guess, True)
         elif guess:
