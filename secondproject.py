@@ -20,7 +20,8 @@ def validate(guess):
 def compareAnswer(guess,truth):
 	"""Gives the player information on whether
 	their guess was higher or lower than the
-	randomly generated correct answer"""
+	randomly generated correct answer. Has a
+	chance to lie once."""
 	high = "is too high -"
 	low = "is too low -"
 	position = "" #only really used for a lie
@@ -35,7 +36,8 @@ def compareAnswer(guess,truth):
 	return (guess, position)
 
 
-#Initial prompt, and checks for validity and relative position to correct answer.	
+#Initial prompt, and checks for validity and relative position to
+#correct answer.	
 print("I'm thinking of a number between 1 and 100.")
 guess = input("Try to guess my number: ")
 guess = validate(guess)
@@ -62,7 +64,8 @@ while True:
 			lieChance = random.randrange(1,5)
 			if lieChance == 3:
 				lie = compareAnswer(guess,False)
-				lieInfo = "I lied about " + str(lie[0]) + " being too " + lie[1]
+				lieInfo = "I lied about " + str(lie[0]) \
+					  + " being too " + lie[1] + "."
 				lieUsed = True
 			else:
 				compareAnswer(guess,True)
