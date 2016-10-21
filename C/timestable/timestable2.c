@@ -25,19 +25,18 @@ int main(int argc, char *argv[])
 	int horizontal_index = 0;
 	for(int vert = lower_bound - 1; vert <= upper_bound; vert++){
 		if(vert == lower_bound - 1){
-			printf("*\t");
+			printf("%4s","   *");
 			int index = vert+1;
-			while(index <= upper_bound){
-				printf("%d!\t",horizontal_array[index]);
+			while(index <= upper_bound){ //loop prints top border.
+				printf("%4d",horizontal_array[index]);
 				index++;
 			}
 		}else{
-			printf("%d!!\t", vertical_array[vert]);
-		
+			printf("%4d", vertical_array[vert]); //prints side border.
 			vertical_index = vert;
 			for(int horiz = lower_bound; horiz <= upper_bound; horiz++){
 				horizontal_index = horiz;
-				printf("%d\t", vertical_array[vertical_index] * horizontal_array[horizontal_index]);
+				printf("%4d", vertical_array[vertical_index] * horizontal_array[horizontal_index]);
 				}
 
 		
