@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
         puts("Invalid input. Positive integers only.\nProgram will now close.");
         return(1);
     }else if((upper_bound > 100) || (lower_bound > 100)){
-        puts("Integers must be less than 101.");
+        puts("Integers must be less than 101, but greater than zero.");
         return(1);
     }
 
