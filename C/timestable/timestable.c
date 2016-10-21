@@ -20,8 +20,6 @@ int main(int argc, char *argv[])
     //Adjustment for longer or shorter numbers.
     if(upper_bound > 32){
         width = 5;
-    }else if(upper_bound < 20){
-        width = 3;
     }
 
     //Minor input validation.
