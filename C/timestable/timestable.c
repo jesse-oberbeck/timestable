@@ -37,14 +37,14 @@ int main(int argc, char *argv[])
         if(vert == lower_bound - 1){
             printf(" %*s", width,"   * ");
             int index = vert+1;
-            while(index <= upper_bound){ //loop prints factors and top border.
+            while(index <= upper_bound){ //loop prints factors.
                 printf(" %*d", width,horizontal_array[index]);
                 index++;
             }
             int number_of_bars = ((upper_bound - lower_bound) * (width + 1) + width + 1);
             puts("");
             printf("%*s%s", width + 1, " ", "\u254B"); //Sets up the corner of the border.
-            for(int count = 0; count < number_of_bars; count++){
+            for(int count = 0; count < number_of_bars; count++){ //Prints top border.
                 printf("%s", top_border);
             }
         }else{
