@@ -22,6 +22,15 @@ int main(int argc, char *argv[])
         width = 5;
     }
 
+    //Corrects for numbers in the wrong order, or a lone zero.
+    if((lower_bound > upper_bound) && (argc > 2)){
+        int temp_int = lower_bound;
+        lower_bound = upper_bound;
+        upper_bound = temp_int;
+    }else if(upper_bound == 0){
+         lower_bound = 0;
+    }
+
     //Minor input validation.
     if((upper_bound < 0) || (lower_bound < 0)){
         puts("Invalid input. Positive integers only.\nProgram will now close.");
