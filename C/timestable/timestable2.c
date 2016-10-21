@@ -4,14 +4,18 @@
 
 int main(int argc, char *argv[])
 {
-	int vertical_array[11];
-	int horizontal_array[11];
-	long int number = 10;
-	if(argc > 1){
-		number = strtol(argv[1], NULL, 10);
+	int vertical_array[101];
+	int horizontal_array[101];
+	long int upper_bound = 10;
+	long int lower_bound = 1;
+	if(argc == 2){
+		upper_bound = strtol(argv[1], NULL, 10);
+	}else if(argc == 3){
+		upper_bound = strtol(argv[2], NULL, 10);
+		lower_bound = strtol(argv[1], NULL, 10);
 	}
-	//printf("%ld\n",number);
-	for(int x = 0; x <= number; x++){
+	//printf("%ld\n",upper_bound);
+	for(int x = 0; x <= upper_bound; x++){
 		vertical_array[x] = x;
 		horizontal_array[x] = x;
 		//printf("%d   ",x);
@@ -19,12 +23,25 @@ int main(int argc, char *argv[])
 	
 	int vertical_index = 0;
 	int horizontal_index = 0;
-	for(int vert = 1; vert <= number; vert++){
-		vertical_index = vert;
-		for(int horiz = 1; horiz <= number; horiz++){
-			horizontal_index = horiz;
-			printf("%d\t", vertical_array[vertical_index] * horizontal_array[horizontal_index]);
-		}
+	for(int vert = lower_bound - 1; vert <= upper_bound; vert++){
+		if(vert == lower_bound - 1){
+			printf("*\t");
+			int index = vert+1;
+			while(index <= upper_bound){
+				printf("%d!\t",horizontal_array[index]);
+				index++;
+			}
+		}else{
+			printf("%d!!\t", vertical_array[vert]);
+		
+			vertical_index = vert;
+			for(int horiz = lower_bound; horiz <= upper_bound; horiz++){
+				horizontal_index = horiz;
+				printf("%d\t", vertical_array[vertical_index] * horizontal_array[horizontal_index]);
+				}
+
+		
+	}
 	puts("");
 	}
 }
